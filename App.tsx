@@ -9,19 +9,23 @@
  */
 
 import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'mobx-react';
 import { NativeBaseProvider } from 'native-base';
 import React from 'react';
 import RootStack from './src/routes/RootStack';
+import { RootStoreContext } from './src/stores/rootStore';
+
 
 const App = () => {
 
   return (
-    <NativeBaseProvider>
-      <NavigationContainer>
-        <RootStack />
-      </NavigationContainer>
-    </NativeBaseProvider>
-
+    <Provider {...RootStoreContext}>
+      <NativeBaseProvider>
+        <NavigationContainer>
+          <RootStack />
+        </NavigationContainer>
+      </NativeBaseProvider>
+    </Provider>
   );
 };
 
