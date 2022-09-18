@@ -1,6 +1,5 @@
 class UrlHelper {
 
-
     getResidentIds = (residentUrls: string[]) => {
 
         let ids: number[] = [];

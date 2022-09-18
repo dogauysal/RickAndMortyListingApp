@@ -1,8 +1,7 @@
-import { makeObservable, action, observable, computed, runInAction, reaction } from "mobx";
+import { makeObservable, action, observable, computed } from "mobx";
 import { Character } from "../models/character/Character";
 import agent from "../services/agent";
 import { RootStore } from "./rootStore";
-import { makePersistable } from 'mobx-persist-store';
 
 export default class CharacterStore {
 
@@ -12,14 +11,11 @@ export default class CharacterStore {
         this.rootStore = rootStore;
 
         makeObservable(this);
-        // makePersistable(this, {
-        //     name: "CharacterStore",
-        //     properties: ["characterList"],
-        //     storage: window.localStorage
-        // });
+
     }
 
     @observable characterList: Character[] = [];
+    @observable selectedFilterType: string = "All";
     @observable isLoading: boolean = false;
 
     @action getSingleCharacter = async (characterId: number) => {
@@ -58,5 +54,22 @@ export default class CharacterStore {
         this.characterList = [];
     }
 
+    @action setFilterType = (type: string) => {
+        this.selectedFilterType = type;
+    }
 
+    @computed get filteredList() {
+        switch (this.selectedFilterType) {
+            case "All":
+                return this.characterList;
+            case "Dead":
+                return this.characterList.filter(c => c.status === "Dead")
+            case "Alive":
+                return this.characterList.filter(c => c.status === "Alive")
+            case "Unknown":
+                return this.characterList.filter(c => c.status === "unknown")
+            default:
+                return []
+        }
+    }
 }

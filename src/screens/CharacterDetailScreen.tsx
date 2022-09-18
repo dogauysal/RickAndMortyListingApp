@@ -27,7 +27,7 @@ const CharacterDetailScreen = ({
 
     return (
         <>
-            {character && <CharacterItem item={character} onClick={() => console.log("")} isDetailScreen={true} />}
+            {character && <CharacterItem item={character} isDetailScreen={true} />}
         </>
     )
 }
