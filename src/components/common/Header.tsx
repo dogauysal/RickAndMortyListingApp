@@ -1,16 +1,31 @@
-import { Center, HStack, Image, StatusBar, Text } from "native-base";
+import { Box, Center, Flex, HStack, Icon, IconButton, Image, StatusBar, Text } from "native-base";
 import React from "react";
+import IonIcons from 'react-native-vector-icons/Ionicons';
 
-const Header = () => {
-    // 
+interface IProps {
+    route: any;
+    navigation: any
+}
+
+const Header: React.FC<IProps> = ({
+    navigation,
+    route
+}) => {
+
+    route.name
     return (
         <>
-            <HStack space={3} justifyContent="center" marginTop={10}>
-                <Center></Center>
+            <HStack marginTop={10} >
+                <Center>
+                    {route.name !== "Locations" && <IconButton
+                        icon={<Icon as={IonIcons} name="chevron-back-circle-outline" size={6} />}
+                        onPress={() => navigation.goBack()}
+                    />}
+
+                </Center>
                 <Center>
                     <Image source={require("../../assets/image/logo.png")} alt="logo" />
                 </Center>
-                <Center></Center>
             </HStack>
         </>
 

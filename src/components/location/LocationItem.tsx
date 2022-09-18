@@ -5,10 +5,12 @@ import IonIcons from 'react-native-vector-icons/Ionicons';
 
 interface IProps {
     item: Location
+    onClick: () => void;
 }
 
 const LocationItem: React.FC<IProps> = ({
-    item
+    item,
+    onClick
 }) => {
 
 
@@ -60,6 +62,7 @@ const LocationItem: React.FC<IProps> = ({
                         <VStack justifyContent="center" >
                             <IconButton
                                 icon={<Icon as={IonIcons} name="chevron-forward-outline" size={10} />}
+                                onPress={() => onClick()}
                             />
                         </VStack>
                     </HStack>

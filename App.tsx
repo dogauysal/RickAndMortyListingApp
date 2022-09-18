@@ -10,7 +10,7 @@
 
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'mobx-react';
-import { NativeBaseProvider } from 'native-base';
+import { NativeBaseProvider, Spinner } from 'native-base';
 import React from 'react';
 import RootStack from './src/routes/RootStack';
 import { RootStoreContext } from './src/stores/rootStore';

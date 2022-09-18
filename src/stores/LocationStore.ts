@@ -16,12 +16,17 @@ export default class LocationStore {
 
     @observable locationList: Location[] = [];
     @observable pageInfo?: Info
+    @observable isLoading: boolean = false;
 
     @action getAllLocations = async () => {
+        this.isLoading = true;
 
         await agent.LocationService.getAllLocations().then(res => {
             this.locationList = res.results;
             this.pageInfo = res.info;
+
+        }).finally(() => {
+            this.isLoading = false
         })
     }
 
