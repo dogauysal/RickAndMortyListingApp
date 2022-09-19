@@ -1,12 +1,13 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { observer } from "mobx-react-lite";
-import { Spinner } from "native-base";
+import { FlatList, Spinner, Text } from "native-base";
 import React, { useContext, useEffect } from "react";
 import Loading from "../components/common/Loading";
+import Pagination from "../components/common/Pagination";
 import LocationItem from "../components/location/LocationItem";
+import LocationList from "../components/location/LocationList";
 import { RootStackParamList } from "../routes/types";
 import { RootStoreContext } from "../stores/rootStore";
-import UrlHelper from "../utils/UrlHelper";
 
 type LocationsScreenNavigationProp = NativeStackScreenProps<RootStackParamList, "Locations">
 
@@ -15,7 +16,7 @@ const LocationsScreen = ({
 }: LocationsScreenNavigationProp) => {
 
     const rootStore = useContext(RootStoreContext);
-    const { getAllLocations, locationList, isLoading } = rootStore.locationStore;
+    const { getAllLocations, isLoading } = rootStore.locationStore;
 
     useEffect(() => {
         fetchAllLocations();
@@ -25,25 +26,9 @@ const LocationsScreen = ({
         await getAllLocations();
     }
 
-    const toCharacterScreen = (residentUrls: string[]) => {
-        let ids = UrlHelper.getResidentIds(residentUrls)
-
-        navigation.navigate("Characters", {
-            characterIds: ids
-        });
-    }
-
-
     return (
         <>
-            {locationList && locationList.map(location => (
-                <LocationItem
-                    key={location.id}
-                    item={location}
-                    onClick={() => toCharacterScreen(location.residents)}
-                />
-            ))}
-
+            <LocationList navigation={navigation} />
             {isLoading && <Loading />}
         </>
     )

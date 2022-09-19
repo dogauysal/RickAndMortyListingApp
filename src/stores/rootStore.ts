@@ -3,7 +3,9 @@ import { createContext } from "react";
 import CharacterStore from "./CharacterStore";
 import LocationStore from "./LocationStore";
 
-
+configure({
+    enforceActions: 'always',
+});
 
 export class RootStore {
     locationStore: LocationStore;

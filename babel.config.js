@@ -1,10 +1,8 @@
 module.exports = {
-  presets: [
-    ['module:metro-react-native-babel-preset'],
-    // ["@babel/plugin-proposal-decorators", { "legacy": true }]
-  ],
-  plugins: [
+  "presets": ["module:metro-react-native-babel-preset"],
+  "plugins": [
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    ["@babel/plugin-proposal-class-properties", { "loose": false }]],
+    // ["@babel/plugin-proposal-class-properties", { "loose": true }],
 
-};
+  ]
+}

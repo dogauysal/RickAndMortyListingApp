@@ -20,28 +20,32 @@ export default class CharacterStore {
 
     @action getSingleCharacter = async (characterId: number) => {
 
-        this.isLoading = true;
+        this.setIsLoading(true);
 
         this.clearCharacterList();
 
         await agent.CharacterService.getCharacterById(characterId).then(res => {
             this.characterList.push(res);
         }).finally(() => {
-            this.isLoading = false;
+            this.setIsLoading(false);
         })
     }
 
     @action getMultipleCharacters = async (characterIds: number[]) => {
 
-        this.isLoading = true;
+        this.setIsLoading(true);
 
         this.clearCharacterList();
 
         await agent.CharacterService.getMultipleCharacters(characterIds).then(res => {
             this.setCharacterList(res)
         }).finally(() => {
-            this.isLoading = false;
+            this.setIsLoading(false);
         })
+    }
+
+    @action setIsLoading = (value: boolean) => {
+        this.isLoading = value;
     }
 
     @action setCharacterList = (characterList: Character[]) => {

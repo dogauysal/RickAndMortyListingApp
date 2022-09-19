@@ -4,7 +4,7 @@ import { RickMortyResponse } from "../models/response/RickMortyResponse";
 import HttpClient from "../utils/HttpClient";
 
 const LocationService = {
-    getAllLocations: () => HttpClient.get<RickMortyResponse<Location>>('/location'),
+    getAllLocations: (page: number) => HttpClient.get<RickMortyResponse<Location>>(`/location?page=${page}`),
     getLocationById: (id: number) => HttpClient.get<Location>(`/location/${id}`)
 }
 
