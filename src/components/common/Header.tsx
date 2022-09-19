@@ -1,4 +1,4 @@
-import { Box, Center, Flex, HStack, Icon, IconButton, Image, StatusBar, Text, VStack } from "native-base";
+import { Center, Flex, HStack, Icon, IconButton, Image } from "native-base";
 import React from "react";
 import IonIcons from 'react-native-vector-icons/Ionicons';
 

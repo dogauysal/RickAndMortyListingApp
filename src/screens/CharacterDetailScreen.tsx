@@ -1,6 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { observer } from "mobx-react-lite";
-import { Text } from "native-base";
 import React, { useContext, useEffect, useState } from "react";
 import CharacterItem from "../components/character/CharacterItem";
 import { Character } from "../models/character/Character";

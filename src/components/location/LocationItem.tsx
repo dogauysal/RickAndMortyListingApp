@@ -1,5 +1,5 @@
-import { Box, Center, Flex, HStack, Icon, IconButton, Text, VStack } from "native-base"
-import React, { useEffect } from "react"
+import { Box, Flex, HStack, Icon, IconButton, Text, VStack } from "native-base"
+import React from "react"
 import Location from "../../models/location/Location"
 import IonIcons from 'react-native-vector-icons/Ionicons';
 

@@ -1,4 +1,4 @@
-import { AspectRatio, Box, Center, Flex, Heading, HStack, Icon, IconButton, Image, Stack, Text } from "native-base";
+import { AspectRatio, Box, Center, Flex, Heading, Icon, IconButton, Image, Stack, Text } from "native-base";
 import React from "react";
 import { Character } from "../../models/character/Character";
 import CharacterStatus from "./CharacterStatus";

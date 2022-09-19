@@ -1,4 +1,4 @@
-import { action, autorun, computed, makeObservable, observable, reaction } from "mobx";
+import { action, autorun, computed, makeObservable, observable } from "mobx";
 import Location from "../models/location/Location";
 import { Info } from "../models/shared/Info";
 import agent from "../services/agent";
@@ -32,7 +32,7 @@ export default class LocationStore {
         await agent.LocationService.getAllLocations(this.currentApiPage).then(res => {
 
             this.updateLocationList(res.results);
-            this.pageInfo = res.info;
+            this.updatePageInfo(res.info)
             this.updateTotalPages(res.info.count)
         }).finally(() => {
             this.setIsLoading(false)
@@ -41,6 +41,10 @@ export default class LocationStore {
 
     @action updateLocationList = (results: Location[]) => {
         this.locationList = results;
+    }
+
+    @action updatePageInfo = (info: Info) => {
+        this.pageInfo = info
     }
 
     @action updateTotalPages = (totalItemCount: number) => {

@@ -1,7 +1,6 @@
 import { observer } from "mobx-react-lite";
-import { FlatList, Flex, Text } from "native-base";
+import { FlatList } from "native-base";
 import React, { useContext } from "react";
-import Location from "../../models/location/Location";
 import { RootStoreContext } from "../../stores/rootStore";
 import UrlHelper from "../../utils/UrlHelper";
 import Pagination from "../common/Pagination";

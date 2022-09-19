@@ -2,10 +2,8 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { observer } from "mobx-react";
 import { Box, CheckIcon, FlatList, HStack, Select, Text, View } from "native-base";
 import React, { useContext, useEffect } from "react";
-import { Dimensions } from "react-native";
 import CharacterItem from "../components/character/CharacterItem";
 import Loading from "../components/common/Loading";
-import { Character } from "../models/character/Character";
 import { RootStackParamList } from "../routes/types";
 import { RootStoreContext } from "../stores/rootStore";
 
@@ -18,7 +16,7 @@ const CharactersScreen = ({
     const { characterIds } = route.params
 
     const rootStore = useContext(RootStoreContext);
-    const { selectedFilterType, filteredList, setFilterType, getSingleCharacter, getMultipleCharacters, characterList, isLoading, clearCharacterList } = rootStore.characterStore;
+    const { selectedFilterType, filteredList, setFilterType, getSingleCharacter, getMultipleCharacters, isLoading } = rootStore.characterStore;
 
     useEffect(() => {
         fetchCharacterList()
