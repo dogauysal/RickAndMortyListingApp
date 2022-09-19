@@ -19,13 +19,13 @@ import { RootStoreContext } from './src/stores/rootStore';
 const App = () => {
 
   return (
-    <Provider {...RootStoreContext}>
-      <NativeBaseProvider>
+    <NativeBaseProvider>
+      <Provider {...RootStoreContext}>
         <NavigationContainer>
           <RootStack />
         </NavigationContainer>
-      </NativeBaseProvider>
-    </Provider>
+      </Provider>
+    </NativeBaseProvider>
   );
 };
 
