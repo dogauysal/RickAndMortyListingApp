@@ -24,7 +24,8 @@
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.17.0",
     "react-native-svg": "^12.1.1",
-    "react-native-vector-icons": "^9.2.0"
+    "react-native-vector-icons": "^9.2.0",
+    "ts-jest": "^26.5.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -55,6 +56,24 @@
       "jsx",
       "json",
       "node"
-    ]
+    ],
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/",
+      "node_modules/(?!react-native|react-navigation)/"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@react-native|react-native|react-native-vector-icons)/)"
+    ],
+    "moduleNameMapper": {
+      "mobx": "<rootDir>/node_modules/mobx"
+    },
+    "transform": {
+      "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.ts?$": "ts-jest",
+      "^.+\\.(js|jsx)$": "babel-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "cacheDirectory": ".jest/cache"
   }
 }

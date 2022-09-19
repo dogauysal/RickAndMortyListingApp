@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Text } from "react-native";
 import IonIcons from 'react-native-vector-icons/Ionicons';
 import { RootStoreContext } from "../../stores/rootStore";
-import PageNumber from "../character/PageNumber";
+import PageNumber from "./PageNumber";
 
 
 const Pagination = () => {
